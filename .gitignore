@@ -1,0 +1,11 @@
+# Build output
+/dist/
+/namemute
+/namemute.exe
+/namemute-installer
+/namemute-installer.exe
+*.exe
+
+# OS junk
+.DS_Store
+Thumbs.db
