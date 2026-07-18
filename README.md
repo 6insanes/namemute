@@ -129,6 +129,54 @@ Steam, включая Proton). Подтвердите установку (`y`), 
 подменённые/добавленные файлы — после крупного обновления игры запустите
 установщик ещё раз.
 
+## Ручная установка (без установщика)
+
+Если не хотите запускать исполняемый файл, можно установить мод руками —
+просто скопировав 17 `.lua`-файлов из папки [`assets/`](assets) поверх
+соответствующих файлов игры. Так как в GitHub Releases лежит только сам
+установщик, для ручной установки нужны файлы мода — склонируйте репозиторий
+или скачайте [`assets/`](assets) с GitHub (Code → Download ZIP).
+
+1. Найдите папку установки Civilization V — там, где лежит подпапка `Assets`
+   (обычно `.../steamapps/common/Sid Meier's Civilization V`).
+2. Полностью закройте игру, если она запущена.
+3. Для каждого файла из таблицы ниже: сделайте резервную копию оригинала
+   (например, добавив к имени `.bak`), затем скопируйте на его место
+   одноимённый файл из `assets/`, заменив содержимое.
+4. Запустите игру — ничего включать в меню Mods не нужно.
+
+| Файл мода (`assets/…`)        | Заменяет файл игры (относительно папки установки)                    |
+|--------------------------------|------------------------------------------------------------------------|
+| `GameplayUtilities.lua`        | `Assets/Gameplay/Lua/GameplayUtilities.lua`                            |
+| `DiscussionDialog.lua`         | `Assets/DLC/Expansion2/UI/InGame/LeaderHead/DiscussionDialog.lua`      |
+| `DiploCorner.lua`              | `Assets/DLC/Expansion2/UI/InGame/WorldView/DiploCorner.lua`            |
+| `MPTurnPanel.lua`              | `Assets/UI/InGame/WorldView/MPTurnPanel.lua`                           |
+| `MPList.lua`                   | `Assets/UI/InGame/WorldView/MPList.lua`                                |
+| `TradeLogic.lua`               | `Assets/DLC/Expansion2/UI/InGame/WorldView/TradeLogic.lua`             |
+| `DiploList.lua`                | `Assets/DLC/Expansion2/UI/InGame/DiploList.lua`                        |
+| `DiploCurrentDeals.lua`        | `Assets/UI/InGame/Popups/DiploCurrentDeals.lua`                        |
+| `DiploVotePopup.lua`           | `Assets/DLC/Expansion2/UI/InGame/Popups/DiploVotePopup.lua`            |
+| `DiploRelationships.lua`       | `Assets/DLC/Expansion2/UI/InGame/Popups/DiploRelationships.lua`        |
+| `DiploGlobalRelationships.lua` | `Assets/DLC/Expansion2/UI/InGame/Popups/DiploGlobalRelationships.lua`  |
+| `VoteResultsPopup.lua`         | `Assets/DLC/Expansion2/UI/InGame/Popups/VoteResultsPopup.lua`          |
+| `EspionageOverview.lua`        | `Assets/DLC/Expansion2/UI/InGame/Popups/EspionageOverview.lua`         |
+| `VictoryProgress.lua`          | `Assets/DLC/Expansion2/UI/InGame/Popups/VictoryProgress.lua`           |
+| `PlotMouseOverInclude.lua`     | `Assets/DLC/Expansion2/UI/InGame/PlotMouseoverInclude.lua`             |
+| `UnitFlagManager.lua`          | `Assets/DLC/Expansion2/UI/InGame/UnitFlagManager.lua`                  |
+| `GameMenu.lua`                 | `Assets/UI/InGame/Menus/GameMenu.lua`                                  |
+
+Это соответствует режиму `-direct-replace` установщика — файлы подменяются
+прямо в родных путях игры, в обход Expansion2.
+
+На Linux (нативный порт Aspyr, не Proton) те же пути живут в нижнем регистре
+под `steamassets/assets/...` (например,
+`steamassets/assets/gameplay/lua/gameplayutilities.lua`) — используйте их,
+если папки `Assets/...` в верхнем регистре не существует.
+
+Мод не трогает сохранения (`AffectsSavedGames=0`) и не меняет игровую базу
+данных — это чистый UI-мод, поэтому замена файлов безопасна. Чтобы откатить
+установку, верните сохранённые на шаге 3 резервные копии на место.
+
 ## Структура проекта
 
 ```
